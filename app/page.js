@@ -155,7 +155,7 @@ export default function Home() {
             key={cert.id}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true }}
+            viewport={{ once: true,amount:0.2}}
             variants={fadeUp1(i)} // ✅ correctly used here
             className="group relative bg-gray-800 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500"
             whileHover={{ scale: 1.03 }}
@@ -259,7 +259,7 @@ export default function Home() {
             key={cert.id}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true }}
+            viewport={{ once: true,amount:0.2 }}
             variants={fadeUp1(i)} // ✅ correctly used here
             className="group relative bg-gray-800 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500"
             whileHover={{ scale: 1.03 }}
@@ -340,7 +340,7 @@ export default function Home() {
             key={project.id}
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true }}
+            viewport={{ once: true,amount:0.2}}
             variants={fadeUp2(i)}
             whileHover={{ scale: 1.03 }}
             className="bg-gray-800 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500"
