@@ -107,7 +107,7 @@ export default function Home() {
       <section className="h-screen flex flex-col items-center justify-center text-center px-6 relative overflow-hidden">
         <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-purple-700/20 via-transparent to-transparent z-0 animate-pulse" />
         <div className="z-10">
-          <Image
+          <img
             src="https://portfolioashu123.s3.ap-south-1.amazonaws.com/ashu2.jpg"
             alt="Profile"
             width={180}
