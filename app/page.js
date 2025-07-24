@@ -19,14 +19,14 @@ const Experience = [
   {
     id: 1,
     title: "Full Stack Web Development",
-    image: "/experience.png",
+    image: "https://portfolioashu123.s3.ap-south-1.amazonaws.com/Screenshot+2025-07-24+112649.png",
     issuer: "Shanti Infosoft LLP",
     date: "May-2025",
   },
   {
     id: 2,
     title: "Full Stack Developer-Backend Devepoler",
-    image: "/smartEd.png",
+    image: "https://portfolioashu123.s3.ap-south-1.amazonaws.com/Screenshot+2025-07-24+113127.png",
     issuer: "SmartED pvt Lmt",
     date: "Nov-2024",
   },
@@ -37,7 +37,7 @@ const project = [
     title: "Wonderlust - Travel Booking App",
     description:
       "A full-featured travel platform like Airbnb with admin approval, bookings, and payments.",
-    image: "/wonderlust.png",
+    image: "https://portfolioashu123.s3.ap-south-1.amazonaws.com/Screenshot+2025-07-23+223949.png",
     tech: ["EJS","Express","MangoDB","Bootstrap","Mangoose"],
     link: "https://majorproject-68mq.onrender.com/listing",
   },
@@ -46,7 +46,7 @@ const project = [
     title: "Recipia - Recipe Sharing App ",
     description:
       "It is Recipe Sharing App Where user can see there recipe and share own food recipe.",
-    image: "/Recipe.png",
+    image: "https://portfolioashu123.s3.ap-south-1.amazonaws.com/Screenshot+2025-07-19+131842.png",
     tech: ["Nextjs","CSS","App Router"],
     link: "https://food-app-seven-red.vercel.app/",
   },
@@ -55,7 +55,7 @@ const project = [
     title: "News App",
     description:
       "This is a news app.It is not full stack project,for learing purpose project but it hepls me to understand how dynamic , intercepter and parallel route work.",
-    image: "/News.png",
+    image: "https://portfolioashu123.s3.ap-south-1.amazonaws.com/Screenshot+2025-07-24+112156.png",
     tech: ["NextJs","CSS"],
     link: "https://news-website-three-delta.vercel.app/",
   },
@@ -76,7 +76,7 @@ const certificates = [
   {
     id: 1,
     title: "Full Stack Web Development",
-    image: "/apnaCollage.png",
+    image: "https://portfolioashu123.s3.ap-south-1.amazonaws.com/Screenshot+2025-07-24+110314.png",
     issuer: "Apna Collage",
     date: "Jan-2025",
     link: "https://www.apnacollege.in/",
@@ -84,7 +84,7 @@ const certificates = [
   {
     id: 2,
     title: "DSA Collection in Java",
-    image: "/DSA.png",
+    image: "https://portfolioashu123.s3.ap-south-1.amazonaws.com/Screenshot+2025-07-24+110736.png",
     issuer: "NPTEL",
     date: "Jul Oct 2024",
     link: "https://nptel.ac.in/",
@@ -92,7 +92,7 @@ const certificates = [
   {
     id: 3,
     title: "Cloud Computing",
-    image: "/Cloud.png",
+    image: "https://portfolioashu123.s3.ap-south-1.amazonaws.com/Screenshot+2025-07-24+110918.png",
     issuer: "NPTEL",
     date: "Jan-Apr 2025",
     link: "https://nptel.ac.in/",
@@ -108,7 +108,7 @@ export default function Home() {
         <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-purple-700/20 via-transparent to-transparent z-0 animate-pulse" />
         <div className="z-10">
           <Image
-            src="/ashu2.jpg"
+            src="https://portfolioashu123.s3.ap-south-1.amazonaws.com/ashu2.jpg"
             alt="Profile"
             width={180}
             height={140}
