@@ -1,6 +1,7 @@
 'use client';
 
 import Image from 'next/image';
+import Link from "next/link";
 import { motion } from "framer-motion";
 
 const fadeUp1 = (i) => ({
@@ -22,6 +23,7 @@ const Experience = [
     image: "https://portfolioashu123.s3.ap-south-1.amazonaws.com/Screenshot+2025-07-24+112649.png",
     issuer: "Shanti Infosoft LLP",
     date: "May-2025",
+    Link:"https://drive.google.com/file/d/1Xv1KBXDES-ZKdQFikVfC3ZV59tapJjXQ/view?usp=drivesdk"
   },
   {
     id: 2,
@@ -29,6 +31,7 @@ const Experience = [
     image: "https://portfolioashu123.s3.ap-south-1.amazonaws.com/Screenshot+2025-07-24+113127.png",
     issuer: "SmartED pvt Lmt",
     date: "Nov-2024",
+    Link:"https://drive.google.com/file/d/1h-Hxk6jJOmmtSjeliRS5qMZUufEXY5Xn/view?usp=drivesdk"
   },
 ]
 const project = [
@@ -79,7 +82,7 @@ const certificates = [
     image: "https://portfolioashu123.s3.ap-south-1.amazonaws.com/Screenshot+2025-07-24+110314.png",
     issuer: "Apna Collage",
     date: "Jan-2025",
-    link: "https://www.apnacollege.in/",
+    link: "https://drive.google.com/file/d/1dXHW7uIMu4fO-ejhQiNF9d07AbNg5MAy/view?usp=drivesdk ",
   },
   {
     id: 2,
@@ -87,7 +90,7 @@ const certificates = [
     image: "https://portfolioashu123.s3.ap-south-1.amazonaws.com/Screenshot+2025-07-24+110736.png",
     issuer: "NPTEL",
     date: "Jul Oct 2024",
-    link: "https://nptel.ac.in/",
+    link: "https://drive.google.com/file/d/1DhbLg_Filv32KCdBoQuG18VNzM231ff-/view?usp=drivesdk ",
   },
   {
     id: 3,
@@ -95,7 +98,7 @@ const certificates = [
     image: "https://portfolioashu123.s3.ap-south-1.amazonaws.com/Screenshot+2025-07-24+110918.png",
     issuer: "NPTEL",
     date: "Jan-Apr 2025",
-    link: "https://nptel.ac.in/",
+    link: "https://drive.google.com/file/d/1SaZj0kGcSHfh1QmjayK1Yf_f4lS3cKfD/view?usp=drivesdk",
   },
 ];
 
@@ -126,6 +129,22 @@ export default function Home() {
           </div>
         </div>
       </section>
+     < motion.div
+  initial={{ opacity: 0 }}
+  animate={{ opacity: 1 }}
+  transition={{ delay: 0.2, duration: 0.6 }}
+  className="flex justify-center mb-10"
+>
+  <Link href="https://drive.google.com/file/d/1P10kkG7uOk_z50WsNabtVqCGSl33VSW6/view?usp=drivesdk" download>
+    <motion.button
+      whileHover={{ scale: 1.05 }}
+      whileTap={{ scale: 0.95 }}
+      className="bg-gradient-to-r from-purple-600 to-indigo-600 text-white font-semibold py-2 px-6 rounded-lg shadow-lg hover:shadow-xl transition"
+    >
+      📥 Download CV
+    </motion.button>
+  </Link>
+</motion.div>
       <section className="max-w-4xl mx-auto px-4 py-12 text-white">
       {/* Experience */}
       <div className="mb-12">
@@ -177,7 +196,7 @@ export default function Home() {
               </span>
               <div className="mt-3">
                 <motion.a
-                  href={cert.link}
+                  href={cert.Link}
                   target="_blank"
                   rel="noopener noreferrer"
                   whileTap={{ scale: 0.95 }}
