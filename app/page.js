@@ -1,24 +1,104 @@
 'use client';
 
 import Image from 'next/image';
-const projects=[
-  {
-    id:1,
-    title:"WonderLust-A Airbnb clone",
-    image:"/wonderlust.png",
-    Link:"https://majorproject-68mq.onrender.com/listing",
-    description:"This is a full stack project where user sharing there property with full security.This website provide user authentication to secure user data. "
+import { motion } from "framer-motion";
 
+const fadeUp1 = (i) => ({
+  hidden: { opacity: 0, y: 40 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      delay: i * 0.2,
+      duration: 0.6,
+      ease: "easeOut",
+    },
+  },
+});
+const Experience = [
+  {
+    id: 1,
+    title: "Full Stack Web Development",
+    image: "/experience.png",
+    issuer: "Shanti Infosoft LLP",
+    date: "May-2025",
   },
   {
-    id:2,
-    title:"Recipia-A receipe Share website",
-    image:"/Recipe.png",
-    Link:"https://www.ashutoshgurjar.site/",
-    description:"This website made by next.js framwork.In this website user can share recipe.see other food recipe also.This project is work on all device.For user experience there is use different route system and provide good user interface, for that increase the user experience."
-  }
-
+    id: 2,
+    title: "Full Stack Developer-Backend Devepoler",
+    image: "/smartEd.png",
+    issuer: "SmartED pvt Lmt",
+    date: "Nov-2024",
+  },
 ]
+const project = [
+  {
+    id: 1,
+    title: "Wonderlust - Travel Booking App",
+    description:
+      "A full-featured travel platform like Airbnb with admin approval, bookings, and payments.",
+    image: "/wonderlust.png",
+    tech: ["EJS","Express","MangoDB","Bootstrap","Mangoose"],
+    link: "https://majorproject-68mq.onrender.com/listing",
+  },
+  {
+    id: 2,
+    title: "Recipia - Recipe Sharing App ",
+    description:
+      "It is Recipe Sharing App Where user can see there recipe and share own food recipe.",
+    image: "/Recipe.png",
+    tech: ["Nextjs","CSS","App Router"],
+    link: "https://food-app-seven-red.vercel.app/",
+  },
+  {
+    id: 3,
+    title: "News App",
+    description:
+      "This is a news app.It is not full stack project,for learing purpose project but it hepls me to understand how dynamic , intercepter and parallel route work.",
+    image: "/News.png",
+    tech: ["NextJs","CSS"],
+    link: "https://news-website-three-delta.vercel.app/",
+  },
+];
+const fadeUp2 = (i) => ({
+  hidden: { opacity: 0, y: 40 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      delay: i * 0.2,
+      duration: 0.6,
+      ease: "easeOut",
+    },
+  },
+});
+const certificates = [
+  {
+    id: 1,
+    title: "Full Stack Web Development",
+    image: "/apnaCollage.png",
+    issuer: "Apna Collage",
+    date: "Jan-2025",
+    link: "https://www.apnacollege.in/",
+  },
+  {
+    id: 2,
+    title: "DSA Collection in Java",
+    image: "/DSA.png",
+    issuer: "NPTEL",
+    date: "Jul Oct 2024",
+    link: "https://nptel.ac.in/",
+  },
+  {
+    id: 3,
+    title: "Cloud Computing",
+    image: "/Cloud.png",
+    issuer: "NPTEL",
+    date: "Jan-Apr 2025",
+    link: "https://nptel.ac.in/",
+  },
+];
+
 
 export default function Home() {
   return (
@@ -46,6 +126,184 @@ export default function Home() {
           </div>
         </div>
       </section>
+      <section className="max-w-4xl mx-auto px-4 py-12 text-white">
+      {/* Experience */}
+      <div className="mb-12">
+        <h2 className="text-3xl font-bold mb-6 border-b border-gray-600 pb-2">Experience</h2>
+        <div className="space-y-6">
+          <div>
+            <h3 className="text-xl font-semibold">Full Stack Developer</h3>
+            <p className="text-sm text-gray-400">Jan 2025 – May-2025 | Indore, India</p>
+            <p className="mt-2 text-gray-300">Built responsive websites using HTML, CSS, JavaScript, and Bootstrap. Collaborated with designers and backend developers to deliver quality web experiences.</p>
+          </div>
+        </div>
+      </div>
+      
+      <section className="bg-gradient-to-br from-slate-950 to-gray-900 py-20 px-4 md:px-10">
+      <motion.h2
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        className="text-4xl md:text-5xl font-bold text-center text-white mb-16"
+      >
+        📜 Certificates
+      </motion.h2>
+
+      <div className="grid gap-10 sm:grid-cols-2 md:grid-cols-3">
+        {Experience.map((cert, i) => (
+          <motion.div
+            key={cert.id}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={fadeUp1(i)} // ✅ correctly used here
+            className="group relative bg-gray-800 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500"
+            whileHover={{ scale: 1.03 }}
+          >
+            <motion.img
+              src={cert.image}
+              alt={cert.title}
+              className="w-full h-52 object-cover"
+              whileHover={{ scale: 1.08 }}
+              transition={{ duration: 0.4 }}
+            />
+            <div className="p-5 text-white space-y-2">
+              <h3 className="text-lg font-semibold group-hover:underline underline-offset-4 transition-all">
+                {cert.title}
+              </h3>
+              <p className="text-sm text-gray-400">Issuer: {cert.issuer}</p>
+              <span className="inline-block text-xs bg-blue-600 px-3 py-1 rounded-full">
+                {cert.date}
+              </span>
+              <div className="mt-3">
+                <motion.a
+                  href={cert.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  whileTap={{ scale: 0.95 }}
+                  className="inline-block text-sm px-4 py-2 bg-white text-gray-900 rounded-md font-medium hover:bg-gray-200 transition duration-300"
+                >
+                  View Certificate
+                </motion.a>
+              </div>
+            </div>
+            <motion.div
+              initial={{ scale: 0 }}
+              animate={{ scale: 1 }}
+              transition={{ delay: i * 0.2 + 0.6, duration: 0.3 }}
+              className="absolute top-3 right-3 bg-green-500 text-white text-xs font-medium px-2 py-1 rounded shadow"
+            >
+              ✅ Verified
+            </motion.div>
+          </motion.div>
+        ))}
+      </div>
+    </section>
+    
+
+      {/* Education */}
+      <div>
+        <h2 className="text-3xl font-bold mb-6 border-b border-gray-600 pb-2">Education</h2>
+        <div className="space-y-6">
+          <div>
+            <h3 className="text-xl font-semibold">MCA – Medicaps University</h3>
+            <p className="text-sm text-gray-400">2023 – 2025 | CGPA: 8.0</p>
+            <p className="mt-2 text-gray-300">Specialized in Master Of Computer Application.</p>
+          </div>
+
+          <div>
+            <h3 className="text-xl font-semibold">BCA – Career Collage,Bhopal</h3>
+            <p className="text-sm text-gray-400">2020 – 2023 | CGPA:7.5</p>
+            <p className="mt-2 text-gray-300">Developed strong fundamentals in Data Structures, Java, and DBMS.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section className="max-w-4xl mx-auto px-4 py-12 text-white">
+      <h2 className="text-3xl font-bold mb-6 border-b border-gray-600 pb-2">Certifications</h2>
+
+      <div className="space-y-6">
+        <div>
+          <h3 className="text-xl font-semibold">Full Stack Web Development – Apna Collage</h3>
+          <p className="text-sm text-gray-400">Issued: May 2025</p>
+          <p className="mt-2 text-gray-300">Learned frontend and backend development using MERN stack. Built projects like Airbnb clone.</p>
+        </div>
+
+        <div>
+          <h3 className="text-xl font-semibold">DSA collection Framework in Java – NPTEL</h3>
+          <p className="text-sm text-gray-400">Issued: Jan - Apr 2025</p>
+          <p className="mt-2 text-gray-300">Learned how Collection Framework works and it helped me solve DSA questions. It helped me optimize my solution through the use of different collection classes and interfaces. </p>
+        </div>
+
+        <div>
+          <h3 className="text-xl font-semibold">Cloud Computing – NPTEL</h3>
+          <p className="text-sm text-gray-400">Jul-Oct 2024</p>
+          <p className="mt-2 text-gray-300">Completed the NPTEL-certified course on Cloud Computing, gaining strong foundational and practical knowledge of cloud architecture, service models (IaaS, PaaS, SaaS), virtualization, and cloud security. Familiar with cloud platforms such as AWS and Google Cloud, cloud deployment models, and modern trends like serverless computing and containerization. Developed the ability to design scalable and cost-effective cloud-based solutions..</p>
+        </div>
+      </div>
+    </section>
+  
+      <section className="bg-gradient-to-br from-slate-950 to-gray-900 py-20 px-4 md:px-10">
+      <motion.h2
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        className="text-4xl md:text-5xl font-bold text-center text-white mb-16"
+      >
+        📜 Certificates
+      </motion.h2>
+
+      <div className="grid gap-10 sm:grid-cols-2 md:grid-cols-3">
+        {certificates.map((cert, i) => (
+          <motion.div
+            key={cert.id}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={fadeUp1(i)} // ✅ correctly used here
+            className="group relative bg-gray-800 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500"
+            whileHover={{ scale: 1.03 }}
+          >
+            <motion.img
+              src={cert.image}
+              alt={cert.title}
+              className="w-full h-52 object-cover"
+              whileHover={{ scale: 1.08 }}
+              transition={{ duration: 0.4 }}
+            />
+            <div className="p-5 text-white space-y-2">
+              <h3 className="text-lg font-semibold group-hover:underline underline-offset-4 transition-all">
+                {cert.title}
+              </h3>
+              <p className="text-sm text-gray-400">Issuer: {cert.issuer}</p>
+              <span className="inline-block text-xs bg-blue-600 px-3 py-1 rounded-full">
+                {cert.date}
+              </span>
+              <div className="mt-3">
+                <motion.a
+                  href={cert.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  whileTap={{ scale: 0.95 }}
+                  className="inline-block text-sm px-4 py-2 bg-white text-gray-900 rounded-md font-medium hover:bg-gray-200 transition duration-300"
+                >
+                  View Certificate
+                </motion.a>
+              </div>
+            </div>
+            <motion.div
+              initial={{ scale: 0 }}
+              animate={{ scale: 1 }}
+              transition={{ delay: i * 0.2 + 0.6, duration: 0.3 }}
+              className="absolute top-3 right-3 bg-green-500 text-white text-xs font-medium px-2 py-1 rounded shadow"
+            >
+              ✅ Verified
+            </motion.div>
+          </motion.div>
+        ))}
+      </div>
+    </section>
+    
 
       {/* About Section */}
       <section className="py-24 px-6 max-w-4xl mx-auto">
@@ -66,46 +324,61 @@ export default function Home() {
           ))}
         </div>
       </section>
-      <section className="py-24 px-6 max-w-6xl mx-auto">
-  <h2 className="text-4xl font-bold mb-12 text-center">Projects</h2>
-  <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
-    {projects.map((items) => (
-      <div
-        key={items.id}
-        className="group bg-gray-800 hover:bg-gray-700 transition rounded-xl shadow-xl overflow-hidden border border-gray-700"
+      <section className="bg-gradient-to-br from-black to-gray-900 py-20 px-6 md:px-10 text-white">
+      <motion.h2
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        className="text-4xl md:text-5xl font-bold text-center mb-16"
       >
-        <div className="h-48  flex items-center justify-center">
-          <span className="text-6xl font-bold text-white"><img src={items.image} alt={items.title} >
-          </img></span>
-        </div>
-        <div className="p-6">
-          <h3 className="text-2xl font-semibold mb-2 group-hover:text-pink-400 transition">
-            {items.title}
-          </h3>
-          <p className="text-gray-400 text-sm mb-4">
-            {items.description}
-          </p>
-          <div className="flex justify-between items-center mt-4">
-            <a
-              href={items.Link}
-              className="text-sm text-purple-400 hover:underline"
-              target="_blank"
-            >
-              View Demo
-            </a>
-            <a
-              href="#"
-              className="text-sm text-gray-400 hover:text-white transition"
-              target="_blank"
-            >
-              GitHub →
-            </a>
-          </div>
-        </div>
+        💻 My Projects
+      </motion.h2>
+
+      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-10">
+        {project.map((project, i) => (
+          <motion.div
+            key={project.id}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={fadeUp2(i)}
+            whileHover={{ scale: 1.03 }}
+            className="bg-gray-800 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500"
+          >
+            <motion.img
+              src={project.image}
+              alt={project.title}
+              className="w-full h-52 object-cover"
+              whileHover={{ scale: 1.05 }}
+              transition={{ duration: 0.4 }}
+            />
+            <div className="p-5 space-y-3">
+              <h3 className="text-xl font-semibold hover:underline">
+                {project.title}
+              </h3>
+              <p className="text-sm text-gray-300">{project.description}</p>
+              <div className="flex flex-wrap gap-2 mt-2">
+                {project.tech.map((tech, idx) => (
+                  <span
+                    key={idx}
+                    className="text-xs bg-indigo-600 px-2 py-1 rounded-full"
+                  >
+                    {tech}
+                  </span>
+                ))}
+              </div>
+              <a
+                href={project.link}
+                target="_blank"
+                className="inline-block mt-3 text-sm text-white font-medium border border-white px-4 py-2 rounded hover:bg-white hover:text-black transition"
+              >
+                View Project
+              </a>
+            </div>
+          </motion.div>
+        ))}
       </div>
-    ))}
-  </div>
-</section>
+    </section>
 
      {/* Contact Section */}
 <section className="py-20 px-6 text-center bg-gradient-to-t from-black to-gray-900">
@@ -176,3 +449,4 @@ export default function Home() {
     </main>
   );
 }
+
